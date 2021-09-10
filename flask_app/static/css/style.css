@@ -1,0 +1,11 @@
+.custom{
+    width: 40vw;
+    min-width: 200px;
+    background-color: #B9E8FC;
+    border: 2px solid #b9c3f8;
+    border-radius: 10px;
+}
+
+.alert{
+    list-style-type: none
+}

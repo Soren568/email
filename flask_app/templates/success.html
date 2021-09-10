@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="container d-flex flex-column justify-content-center align-items-center pt-5">
+        <div class="mb-5">
+            {% for message in get_flashed_messages() %}
+                <p class="">{{message}}</p>
+            {% endfor %}
+        </div>
+        <h3><strong><u>Email Addresses Entered:</u></strong> </h3>
+        <ul class="list-group list-group-flush">
+            {% for email in emails %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{email['email']}}
+                <span class="badge bg-primary rounded-pill ms-5">{{email['created_at'].strftime("%B %d, %Y  at %H:%M:%S")}}</span>
+                <a href="/email/delete/{{email['id']}}" class="badge bg-danger rounded-pill ms-3">Delete</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
